@@ -22,6 +22,11 @@ pip install -r requirements.txt
 ```
 
 ```shell
+flask db init
+flask db upgrade
+```
+
+```shell
 python seed.py
 ```
 
