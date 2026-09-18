@@ -54,3 +54,37 @@ Lancer le server via le debugger vscode/pycharm/...
 | GET | `/api/basket/all` | | ADMIN | |
 | GET | `/api/basket/report` | | ADMIN | |
 | GET | `/api/stats` | | | |
+
+## Indices
+
+Performance
+- Lister les utilisateurs devient très lent
+- Afficher tous les paniers génère beaucoup de requêtes
+- Le rapport des commandes interroge la base en boucle
+- La liste des utilisateurs reste lente sans SQL supplémentaire
+- La recherche à faible stock charge toute la table
+- Les statistiques chargent tout pour compter
+- L'attribution des rôles répète du travail
+
+Sécurité
+- Le mot de passe est exposé
+- Le token contient trop d'informations
+- Un utilisateur peut consulter le profil d'un autre
+- La recherche d'articles n'est pas sûre
+- Debug et clé secrète en production
+- CORS trop permissif
+- Le token peut passer par l'URL
+
+Logique métier
+- Des rôles se mélangent entre utilisateurs
+- Une comparaison de liste trompeuse
+- Ajouter deux fois le même article
+- Le stock après une commande
+- Total du panier faux au centime
+- Les articles supprimés apparaissent encore
+
+Robustesse
+- Un id inexistant plante
+- Les erreurs sont ignorées
+- La suppression efface l'historique
+- L'injecteur garde des données en mémoire
