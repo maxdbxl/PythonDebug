@@ -12,21 +12,6 @@ from dotenv import load_dotenv
 envvars = Path().cwd() / '.env.local'
 load_dotenv()
 
-def ma_super_fonction():
-    print("hello")
-    print("hello")
-    print("hello")
-    print("hello")
-    print("hello")
-    print("hello")
-    print("hello")
-    print("hello")
-    print("hello")
-    print("hello")
-    print("hello")
-    print("hello")
-    print("hello")
-    print("hello")
 
 if os.path.exists(envvars):
     load_dotenv(envvars, override=True, verbose=True)
@@ -35,9 +20,6 @@ app = Flask('app')
 app.debug = os.environ.get("DEBUG")
 app.secret_key = os.environ.get("JWT_KEY")
 wtforms_json.init()
-
-ma_super_fonction()
-ma_super_fonction()
 
 toolbar = DebugToolbarExtension(app)
 app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
