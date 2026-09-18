@@ -1,0 +1,13 @@
+Flask
+Flask-WTF
+WTForms-JSON
+Jinja2
+Flask-DebugToolbar
+psycopg2-binary
+bcrypt
+Flask-SQLAlchemy
+Flask-Migrate
+flask-cors
+pyyaml
+pyjwt
+python-dotenv
