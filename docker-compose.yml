@@ -4,6 +4,7 @@ services:
   db:
     image: postgres:13.7
     environment:
+      # Si c'est un container de prod -> mots de largement passe insuffisant
       POSTGRES_PASSWORD: 1234
       POSTGRES_USER: app
       POSTGRES_DB: app
