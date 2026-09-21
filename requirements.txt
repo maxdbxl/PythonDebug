@@ -11,3 +11,4 @@ flask-cors
 pyyaml
 pyjwt
 python-dotenv
+debugpy
