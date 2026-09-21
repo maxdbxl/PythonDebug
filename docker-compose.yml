@@ -3,13 +3,27 @@ version: '3.8'
 services:
   app:
     image: python:3.13.14-trixie
-    command: "bash -c 'pip install  -r requirements.txt && python -m debugpy --listen 0.0.0.0:5678 runserver.py'"
+    command: "bash -c 'pip install  -r requirements.txt && opentelemetry-instrument python -m debugpy --listen 0.0.0.0:5678 runserver.py'"
     working_dir: /app
     volumes:
       - ./:/app
     ports:
       - 8080:8080
       - 5678:5678
+    depends_on:
+      - jaeger
+      - db
+    environment:
+      OTEL_SERVICE_NAME: flask-api
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://jaeger:4317
+      OTEL_TRACES_EXPORTER: otlp
+      OTEL_METRICS_EXPORTER: none
+      OTEL_LOGS_EXPORTER: none
+
+  jaeger:
+    image: jaegertracing/jaeger:latest
+    ports:
+      - "16686:16686"
 
   db:
     image: postgres:13.7
