@@ -31,6 +31,12 @@ python seed.py
 ```
 
 Lancer le server via le debugger vscode/pycharm/...
+
+Le front React (Vite + React 19) est le service `front` du même `docker compose` :
+il se lance sur http://localhost:5173 (`docker compose logs -f front` pour suivre
+le premier démarrage, qui construit l'image). Ses propres bugs sont documentés
+dans [front/README.md](front/README.md).
+
 ## Routes
 
 | Méthode | Route | Query params | Droits | Form |
